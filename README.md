@@ -1,4 +1,4 @@
-# Docker Registry Tool
+# Docker Registry Tool [![Build Status](https://travis-ci.org/MacaroonCookie/docker-registry.svg?branch=master)](https://travis-ci.org/MacaroonCookie/docker-registry)
 A tool to search, modify, and interact with repositories on a private Docker Registry
 
 I found that the features to interact with a private Docker Registry have been
