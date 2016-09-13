@@ -5,10 +5,14 @@ from .config import Config
 import json
 import requests
 
-def getDockerRegistry(version, *args, **kwargs):
+def getDockerRegistry(version=None, *args, **kwargs):
+  if( version is None ):
+    version = Config.DEFAULT_DOCKER_REGISTRY_VERSION
 
   if( version == 2 ):
     return DockerRegistryV2(*args, **kwargs)
+  else:
+    raise Exception('Docker Registry API version %s is unsupported.' % version)
 
 class DockerRegistryV2(object):
 
