@@ -1,22 +1,22 @@
 #!/usr/bin/env python
 
 from . import registry
+from .config import Config
+from tabulate import tabulate
 
 import argparse
 import sys
 
 class ArgumentParser(object):
-
   def __init__(self):
     # Global arguments
     self.global_parser = argparse.ArgumentParser(add_help=False)
-    #self.global_parser.add_argument('--host', '-H', dest='host', default=None, help='Host of Docker Registry')
     
     # Master/Parent parsers
     self.master_parser = argparse.ArgumentParser(description='Interact with a Docker Registry')
     self.master_parser.add_argument('--host', '-H', dest='host', default=None, help='Host of Docker Registry')
     self.master_parser.add_argument('--port', '-P', dest='port', default=None, help='Port of Docker Registry')
-    self.master_parser.add_argument('--registry-version', '-V', dest='registry_version', default=2, help='Docker Registry API version')
+    self.master_parser.add_argument('--registry-version', '-V', dest='registry_version', default=None, help='Docker Registry API version')
     self.master_parser.add_argument('--config-file', '-c', dest='config_file', default='~/.docker-registry.ini')
 
     # Sub-command Processors
@@ -26,8 +26,6 @@ class ArgumentParser(object):
 
     # Command 'list' arguments
     #self.command_ls_parser.add_argument()
-
-    #self.parsed_args = self.master_parser.parse_args()
 
   def parse(self, args=None):
     #return self.parsed_args
@@ -42,7 +40,7 @@ def main(argv=None):
   parsed_args = parser.parse()
 
   docker_registry = registry.getDockerRegistry(parsed_args.registry_version, host=parsed_args.host, port=parsed_args.port)
-  print(docker_registry.getRepositories())
+  print(tabulate(docker_registry.getRepositories(), headers=['Repositories'], tablefmt=Config.DEFAULT_OUTPUT_FORMAT))
 
 if( __name__ == '__main__' ):
   main()
