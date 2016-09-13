@@ -1,10 +1,15 @@
 language: python
 python:
-    - "2.6"
-    - "2.7"
-    - "3.2"
-    - "3.5"
+  - '2.6'
+  - '2.7'
+  - '3.2'
+  - '3.5'
 install:
   - pip install -r requirements.txt
   - pip install .
 script: ls
+deploy:
+  provider: pypi
+  user: MacaroonCookie
+  password:
+    secure: V1lR9ldpGd39atSwlaRUiQMSW3LquSyKYfOPwTV/lW8gMNg8Gw+juHWsyC2c6wr0AhAa6koVp/HF75dTWBCr0s/sYiHlSAOnvkmLcWEVP6ShbRF6TefNld4nV8IL2sAK9Qto3f0p0HPK4VoT9kNDw/MBQeihOepxFjL4GZofeUPEBxAtF66Et8Foxs7cRrLTzQf8qaZd2cKYZtvekineWSJShPtCC66YvBzC/T7QU4UA8LFvxPlUuH9dYdCzr5ffqa33FSOnoxaPSMvOBC1mNiFMehQhG7gfzVTcZtA4prWez5A6alnSBby1JGN7Nh4cfAQh8w5Y2vCqC4fGepEMBUYM7XtUy31H/VVc2cSRaFWusIfQF488ZNJNJUJBfAZks/Taz5L1g+bS4x0Vm9AdWxq+47KwquLsUybPoRImQhnBWEOkA1FL/mAu2HhCyYOC+wBeZnRHpsJXrlE9I1lm94mjufpTctHLOKmCjjGHLhAzSYTggi+mCSe8Nql/3XaTYGovMdkr3SfwiDBZnrsX6f7mMLt6qf7ms0opr59IZPNK3UuoHGXrr5QwOGYDlgdGSQUOvotRns3q5KRIs5HytJjHgYEGkuu2VPUUNlzf/NrvFawRSJL+oIhKV06hwKt7TlgMat3fN34IXS6khsz8ci8BJuBaGwMoIXzKU4yV+N4=
