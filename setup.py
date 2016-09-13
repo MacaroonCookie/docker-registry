@@ -18,5 +18,10 @@ setup(
         classifiers  = [ 'Programming Language :: Python :: 2.7',
                          'Operating System :: Unix',
                          'Development Status :: 3 - Alpha' ],
+        install_requires = [
+            'argparse>=1.4.0',
+            'requests>=2.11.0',
+            'tabulate>=0.7.5'
+        ],
         entry_points = { 'console_scripts': [ 'docker-registry=docker_registry.__main__:main' ] }
 )
