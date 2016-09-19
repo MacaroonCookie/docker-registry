@@ -40,7 +40,7 @@ def main(argv=None):
   parsed_args = parser.parse()
 
   docker_registry = registry.getDockerRegistry(parsed_args.registry_version, host=parsed_args.host, port=parsed_args.port)
-  print(tabulate(docker_registry.getRepositories(), headers=['Repositories'], tablefmt=Config.DEFAULT_OUTPUT_FORMAT))
+  print tabulate(docker_registry.getRepositories(), headers=['Repositories'], tablefmt=Config.DEFAULT_OUTPUT_FORMAT)
 
 if( __name__ == '__main__' ):
   main()
